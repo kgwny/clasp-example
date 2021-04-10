@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "lib": ["es2019"],
+    "rootDir": "./",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./*"],
+      "@lib/*": ["lib/*"]
+    },
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true
+  },
+  "files": ["./@types/globals.d.ts", "./@types/vendor.d.ts"],
+  "include": ["./**/*"],
+  "exclude": ["dist", "node_modules"]
+}
