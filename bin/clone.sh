@@ -1,7 +1,7 @@
 #!/bin/bash
 
-printf "Input Project Name >> "; read project_name
+printf "Input application name >> "; read app_name
 
-mkdir ${project_name} && cd ${project_name} && touch index.ts
+mkdir ${app_name} && cd ${app_name} && touch index.ts
 clasp clone --rootDir './dist'
 cp ./dist/appsscript.json ./

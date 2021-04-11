@@ -1,25 +1,25 @@
 const path = require('path');
 const fs = require('fs');
-const CopyWebpackPlugin = require("copy-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
 const GasPlugin = require('gas-webpack-plugin');
 
-const projectsPath = path.resolve(__dirname, 'projects')
+const appsPath = path.resolve(__dirname, 'apps')
 
-const targets = fs.readdirSync(projectsPath, { withFileTypes: true })
+const targets = fs.readdirSync(appsPath, { withFileTypes: true })
   .filter(path => path.isDirectory() && !path.name.startsWith('.'))
   .map(path => path.name)
 
 const entries = {}
 targets.forEach(dirName => {
-  entries[dirName] = path.resolve(projectsPath, dirName, 'index.ts')
+  entries[dirName] = path.resolve(appsPath, dirName, 'index.ts')
 })
 
 module.exports = {
   mode: 'development',
   entry: entries,
   output: {
-    path: path.resolve(projectsPath),
+    path: path.resolve(appsPath),
     filename: "[name]/dist/bundle.js",
   },
   resolve: {
@@ -46,7 +46,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         ...targets.map(dirName => ({
-          from: `projects/${dirName}/**/*.json`,
+          from: `apps/${dirName}/**/*.json`,
           to: `${dirName}/dist/[name].[ext]`
         })),
       ]
