@@ -17,11 +17,8 @@ else
 fi
 
 # update .clasp.json
-
 echo '{"scriptId":"'$SCRIPT_ID'","rootDir":"./dist"}' > .clasp.json
 
 # clasp push & deploy with comment
-
 MSG="[`date "+%y-%m-%d %H:%M:%S"`] '`git log --no-merges -1 --oneline | cut -b 9-`'"
-
-cd apps/$TARGET_APP && clasp push && clasp deploy -d "${MSG}"
+cd main/$TARGET_APP && clasp push && clasp deploy -d "${MSG}"

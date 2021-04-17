@@ -4,7 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
 const GasPlugin = require('gas-webpack-plugin');
 
-const appsPath = path.resolve(__dirname, 'apps')
+const appsPath = path.resolve(__dirname, 'main')
 
 const targets = fs.readdirSync(appsPath, { withFileTypes: true })
   .filter(path => path.isDirectory() && !path.name.startsWith('.'))
