@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "lib": ["es2019"],
+    "lib": ["dom", "es2019"],
     "rootDir": "./",
     "baseUrl": "./",
     "paths": {

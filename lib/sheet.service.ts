@@ -1,9 +1,9 @@
 import { getDayFormat } from './util';
 
-declare var SpreadsheetApp;
+declare let SpreadsheetApp: any;
 
 export class SheetService {
-  static createInitialFile(prefix: string): SpreadsheetApp {
+  static createInitialFile(prefix: string): any {
     const fileName = `${prefix} ${getDayFormat()}`;
     const ss = SpreadsheetApp.create(fileName);
     const range = ss.getRange('A1');
