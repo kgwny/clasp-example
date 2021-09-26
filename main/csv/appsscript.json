@@ -1,0 +1,47 @@
+{
+  "timeZone": "Asia/Tokyo",
+  "dependencies": {
+    "libraries": [{
+      "userSymbol": "Drive",
+      "serviceId": "drive",
+      "version": "v2"
+    }, {
+      "userSymbol": "Sheets",
+      "serviceId": "sheets",
+      "version": "v4"
+    }, {
+      "userSymbol": "BigQuery",
+      "serviceId": "bigquery",
+      "version": "v2"
+    }, {
+      "userSymbol": "Moment",
+      "libraryId": "15hgNOjKHUG4UtyZl9clqBbl23sDvWMS8pfDJOyIapZk5RBqwL3i-rlCo",
+      "version": "9"
+    }, {
+      "userSymbol": "parser",
+      "libraryId": "1Jrnqmfa6dNvBTzIgTeilzdo6zk0aUUhcXwLlQEbtkhaRR-fi5eAf4tBJ",
+      "version": "5"
+    }, {
+      "userSymbol": "SlackApp",
+      "libraryId": "1on93YOYfSmV92R5q59NpKmsyWIQD8qnoLYk-gkQBI92C58SPyA2x1-bq",
+      "version": "22"
+    }, {
+      "userSymbol": "Underscore",
+      "libraryId": "1PcEHcGVC1njZd8SfXtmgQk19djwVd2GrrW1gd7U5hNk033tzi6IUvIAV",
+      "version": "2"
+    }, {
+      "userSymbol": "NCMB",
+      "libraryId": "1yWnb7GfYsBCR-MZvi6r-TOYv_y-AV4le5P7kaG5B3iZ5VNnSk9Q55pSJ",
+      "version": "29"
+    }, {
+      "userSymbol": "ChatWorkClient",
+      "libraryId": "1nf253qsOnZ-RcdcFu1Y2v4pGwTuuDxN5EbuvKEZprBWg764tjwA5fLav",
+      "version": "18"
+    }, {
+      "userSymbol": "GSApp",
+      "libraryId": "1wkfv_Mm0IyruEZyPZsrctcSmc1T9y0-bArl2gIzMd6RVYJAwWeJ5gpDu",
+      "version": "8"
+    }]
+  },
+  "exceptionLogging": "STACKDRIVER"
+}
