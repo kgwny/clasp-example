@@ -1,7 +1,7 @@
-declare let global: any;
+//declare let global: any;
 declare let ScriptApp: any;
 
-global.main = (): void => {
+global.trigger = (): void => {
   // 現在の日付を取得
   const next = new Date();
 
