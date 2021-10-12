@@ -1,4 +1,4 @@
-//declare let global: any;
+declare let global: any;
 declare let ScriptApp: any;
 
 global.trigger = (): void => {
