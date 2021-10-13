@@ -5,7 +5,31 @@ declare let SpreadsheetApp: any;
 declare let GmailApp: any;
 
 global.csv = (): void => {
-  getNewestCsvFileFromMail();
+  copySpreadSheet();
+}
+
+export const copySpreadSheet = (): void => {
+  const srcSpreadSheet = SpreadsheetApp.openById("1gou2T0oSRV4Rt85fHpe-O7E2_6XRaOApZ1rILNZvIyE");
+  const dstSpreadSheet = SpreadsheetApp.openById("1PG7YBBPfaSnxCyOeQpG42LhxcsVY75R-bIaUJiIULZg");
+
+  const sheets = srcSpreadSheet.getSheets();
+  for (let sheet of sheets) {
+    let sheetName = sheet.getSheetName();
+    console.log("sheetName = " + sheetName);
+
+    const oldSheet = dstSpreadSheet.getSheetByName(sheetName);
+    if (!oldSheet) {
+      console.log("対象外とみなしてスキップ");
+      continue;
+    }
+    dstSpreadSheet.deleteSheet(oldSheet);
+    console.log("コピー先スプレッドシートから古いシートを削除");
+
+    const copyTargetSheet = srcSpreadSheet.getSheetByName(sheetName);
+    const newSheet = copyTargetSheet.copyTo(dstSpreadSheet);
+    newSheet.setName(sheetName);
+    console.log("コピー先スプレッドシートへ新しいシートを追加");
+  }
 }
 
 export const getCsvFile = (): void => {
@@ -75,32 +99,7 @@ export const getNewestCsvFileFromMail = (): void => {
     }
   }
 
-  const folder = DriveApp.getFolderById("1TxsLOcl99o8ULkdujrlPzkqgaO-HfUFx");
-  folder.createFile(newestAttachment);
-
-  // let fileNames = getFileNames();
-
-  // for (let i in newestAttachment) {
-  //   for (let j in fileNames) {
-  //     // ドライブにすでに同じ名前のファイルがあるか？
-  //     if (newestAttachment[i].getName() == fileNames[j]) {
-  //       let files = DriveApp.getFilesByName(fileNames[j]);
-  //       // 重複ファイルを削除
-  //       if (files.hasNext()) {
-  //         let file = files.next();
-  //         file.setTrashed(true);
-  //         console.log(file.getName());  // 削除したファイル名表示
-  //       }
-  //     }
-  //   }
-  //   // ドライブに添付ファイルを保存
-  //   folder.createFile(newestAttachment[i]);
-  // }
-
-  const file = folder.getFilesByName("test2021-10.csv").next();
-  console.log("file = " + file);
-
-  const csvData = Utilities.parseCsv(file.getBlob().getDataAsString());
+  const csvData = Utilities.parseCsv(newestAttachment.getDataAsString());
   console.log("csvData = " + csvData);
 
   const spreadSheet = SpreadsheetApp.openById("1gou2T0oSRV4Rt85fHpe-O7E2_6XRaOApZ1rILNZvIyE");
